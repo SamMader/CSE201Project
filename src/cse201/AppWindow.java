@@ -1,14 +1,19 @@
 package cse201;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class AppWindow extends Application {
 	
 	ourApplication a;
+	@FXML Text title;
+	@FXML Text description;
+	@FXML Text rating;
 	
 	public AppWindow(ourApplication x) {
 		a = x;
