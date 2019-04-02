@@ -1,4 +1,4 @@
-package cse201;
+package sample;
 
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
