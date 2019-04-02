@@ -6,7 +6,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class AppWindow extends Application {
+	
+	Application a;
+	
+	public AppWindow(Application x) {
+		a = x;
+	}
+	
+	public AppWindow() {
+		a = new Application("Test", "This is a test.", 5, 0, 69, 0);
+	}
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -15,9 +25,8 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
-
-
+    
     public static void main(String[] args) {
-        launch(args);
+    	launch(args);
     }
 }
