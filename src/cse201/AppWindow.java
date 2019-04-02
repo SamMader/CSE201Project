@@ -8,20 +8,20 @@ import javafx.stage.Stage;
 
 public class AppWindow extends Application {
 	
-	Application a;
+	ourApplication a;
 	
-	public AppWindow(Application x) {
+	public AppWindow(ourApplication x) {
 		a = x;
 	}
 	
 	public AppWindow() {
-		a = new Application("Test", "This is a test.", 5, 0, 69, 0);
+		a = new ourApplication("Test", "This is a test.", 5, 0, 69, 0, null, null);
 	}
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle(a.name);
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
