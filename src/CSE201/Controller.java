@@ -1,4 +1,4 @@
-package sample;
+package CSE201;
 
 public class Controller {
 }
