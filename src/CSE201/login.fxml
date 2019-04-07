@@ -26,14 +26,14 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Text>
-            <TextField />
+            <TextField fx:id="username" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="CENTER" wrappingWidth="279.0690116882324">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Text>
-            <PasswordField />
-            <Button mnemonicParsing="false" text="Login">
+            <PasswordField fx:id="password" />
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" text="Login">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

@@ -1,3 +1,4 @@
+package CSE201;
 
 public class User {
 	//hardcoding the credentials, later on we can use a text file or some database to retrieve the credentials
@@ -85,6 +86,14 @@ public class User {
 		}
 		//return false if nothing matches
 		return false;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 	
 }
