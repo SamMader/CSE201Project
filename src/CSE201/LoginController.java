@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 
 public class LoginController {
 
+    User currentUser = null;
+
     //Linking FXML to Controller
     @FXML
     TextField username = new TextField();
@@ -19,16 +21,21 @@ public class LoginController {
     User[] database = new User[1];
 
     // On click, check if user exists, if true, return user to main program
-    public User login() {
+    public void login() {
         String user = username.getText();
         String pass = password.getText();
         for (int x = 0; x < database.length; x++) {
             User y = database[x];
-            if (y.login(user, pass)) {
-                return y;
+            if (y.getUsername().equals(user)) {
+                if (y.getPassword().equals(pass)) {
+                    y = currentUser;
+                }
             }
         }
-        return null;
+    }
+
+    public void transferUser(User a) {
+       currentUser = a;
     }
 
 }

@@ -8,18 +8,23 @@ import javafx.stage.Stage;
 
 public class AppViewer extends Application {
 
-    ApplicationEntry app;
+    //ApplicationEntry app;
 
+    /*
     public AppViewer(ApplicationEntry a) {
         app = a;
     }
+     */
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+    /*
         Parent root = FXMLLoader.load(getClass().getResource("appview.fxml"));
         primaryStage.setTitle(app.name);
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+
+     */
     }
 
 }
