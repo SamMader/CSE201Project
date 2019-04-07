@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginController {
 
@@ -24,13 +25,23 @@ public class LoginController {
     public void login() {
         String user = username.getText();
         String pass = password.getText();
+        boolean gotUser = false;
         for (int x = 0; x < database.length; x++) {
             User y = database[x];
             if (y.getUsername().equals(user)) {
                 if (y.getPassword().equals(pass)) {
-                    y = currentUser;
+                    currentUser = y;
+                    gotUser = true;
                 }
             }
+        }
+        if (gotUser) {
+            Stage stage = (Stage) loginButton.getScene().getWindow();
+            stage.close();
+        }
+        else {
+            username.clear();
+            password.clear();
         }
     }
 
