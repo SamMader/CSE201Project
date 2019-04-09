@@ -12,8 +12,10 @@ public class User {
 	//private Application[] wishlist;
 	
 	//Constructor
-	public User() {
-		
+	public User(String u, String p, String name) {
+		username = u;
+		password = p;
+		realName = name;
 	}
 	
 	//Login method
@@ -94,6 +96,14 @@ public class User {
 
 	public String getPassword() {
 		return password;
+	}
+
+	public String getRealName() { return realName; }
+
+	public void write(User a) {
+		this.username = a.getUsername();
+		this.password = a.getPassword();
+		this.realName = a.getRealName();
 	}
 	
 }

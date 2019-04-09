@@ -36,7 +36,7 @@
                               <Insets top="90.0" />
                            </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                        <Text fx:id="userName" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                            <HBox.margin>
                               <Insets top="90.0" />
                            </HBox.margin>
@@ -46,12 +46,17 @@
                         <Insets top="100.0" />
                      </VBox.margin>
                   </HBox>
-                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonAction" text="Login" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonAction" text="Login" />
+                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutAction" text="Logout" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <VBox prefHeight="352.0" prefWidth="518.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category" wrappingWidth="81.33666610717773">
+                  <Text fx:id="category" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" wrappingWidth="514.1365623474121">
                      <font>
                         <Font size="20.0" />
                      </font>
