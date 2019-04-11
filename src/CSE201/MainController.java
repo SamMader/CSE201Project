@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -27,6 +29,10 @@ public class MainController implements Initializable {
     Text category = new Text();
     @FXML
     Text userName = new Text();
+    @FXML
+    TextField searchBar = new TextField();
+    @FXML
+    VBox appsBox = new VBox();
 
     public void loginButtonAction() {
         try {
@@ -64,8 +70,12 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        userArrayList.add(new User("Test 1", "6969", "LUL"));
+        userArrayList.add(new User("Test 1", "6969", "Sam"));
         logoutButton.setVisible(false);
         category.setText("All Applications");
+    }
+
+    public void sort() {
+
     }
 }

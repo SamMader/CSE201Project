@@ -1,4 +1,4 @@
-
+/*
 public class Catalog {
 
 	/*
@@ -11,7 +11,7 @@ public class Catalog {
 	 * sort
 	 * 
 	 */
-
+/*
 	// inner node class
 	private class ApplicationEntry {
 
@@ -82,7 +82,8 @@ public class Catalog {
 		 * getGenre, other compareTos?, equals
 		 * 
 		 */
-
+/*
 	}
 
 }
+ */

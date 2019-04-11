@@ -4,10 +4,10 @@
     <list default="true" id="5f81183b-cb9f-4ec0-897f-01bf437858b2" name="Default Changelist" comment="Login Screen Ready for Testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSE201Project/CSE201/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSE201Project/CSE201/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSE201/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSE201/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSE201Project/CSE201/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSE201Project/CSE201/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CSE201/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSE201/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSE201/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSE201/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CSE201/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSE201/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Catalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catalog.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CSE201/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-80">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="403">
+              <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,13 +34,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Catalog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="52">
+              <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CSE201/login.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="38" selection-start-column="38" selection-end-column="38" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -50,17 +59,15 @@
               <caret line="47" column="86" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1343#1344#0" expanded="true" />
-                <element signature="e#1373#1374#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CSE201/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="1491">
               <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
             </state>
           </provider>
@@ -91,12 +98,13 @@
         <option value="$PROJECT_DIR$/src/CSE201/LoginScreen.java" />
         <option value="$PROJECT_DIR$/src/CSE201/AppViewer.java" />
         <option value="$PROJECT_DIR$/src/CSE201/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/CSE201/MainController.java" />
         <option value="$PROJECT_DIR$/src/CSE201/User.java" />
+        <option value="$PROJECT_DIR$/src/Catalog.java" />
+        <option value="$PROJECT_DIR$/src/CSE201/MainController.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="-20" />
     <option name="width" value="1750" />
@@ -111,6 +119,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,10 +142,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="cse201project" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/SceneBuilder/SceneBuilder.exe" />
     <property name="project.structure.last.edited" value="Project" />
@@ -196,9 +208,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.2657718" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.26979867" />
       <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" weight="0.23489933" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -208,7 +219,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39943343" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -258,23 +269,11 @@
     <MESSAGE value="Login Screen Ready for Testing" />
     <option name="LAST_COMMIT_MESSAGE" value="Login Screen Ready for Testing" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CSE201/MainController.java</url>
-          <line>51</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/sample/Application.java" />
     <entry file="file://$PROJECT_DIR$/src/CSE201/main.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSE201/AppViewController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -291,12 +290,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSE201/appview.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSE201/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -322,14 +321,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSE201/login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="38" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -382,32 +373,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSE201/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1491">
+          <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSE201/login.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CSE201/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="47" column="86" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1343#1344#0" expanded="true" />
-            <element signature="e#1373#1374#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catalog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSE201/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="403">
+          <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSE201/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
         </state>
       </provider>
     </entry>
