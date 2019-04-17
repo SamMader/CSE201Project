@@ -1,5 +1,5 @@
 package CSE201;
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -7,11 +7,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-public class MainNew extends JFrame {
+public class MainNew extends JFrame implements ActionListener {
 
 	/**
 	 * 
@@ -20,10 +24,18 @@ public class MainNew extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtSearch;
 
+	private User currentUser = new User("", "", "");
+	
+	private String name = "N/A";
+	
+	private static ArrayList<User> database = new ArrayList<>();
+	
+	JLabel lblName = new JLabel("");
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		database.add(new User("Test", "abc", "Sam"));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -75,6 +87,8 @@ public class MainNew extends JFrame {
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(0, 319, 80, 25);
+		btnLogin.setActionCommand("LOGIN");
+		btnLogin.addActionListener(this);
 		contentPane.add(btnLogin);
 		
 		JButton btnLogout = new JButton("Logout");
@@ -100,5 +114,28 @@ public class MainNew extends JFrame {
 		lblVarcategory.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVarcategory.setBounds(299, 4, 111, 30);
 		contentPane.add(lblVarcategory);
+		
+		lblName.setBounds(77, 299, 56, 16);
+		lblName.setText(name);
+		contentPane.add(lblName);
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String cmd = e.getActionCommand();
+		if (cmd == "LOGIN") {
+			LoginNew a = new LoginNew();
+			a.getUser(currentUser);
+			a.getDB(database);
+			a.setModal(true);
+			a.setVisible(true);
+			if (currentUser.getUsername() != null) {
+				name = currentUser.getRealName();
+				lblName.setText(name);
+			}
+		}
 	}
 }
