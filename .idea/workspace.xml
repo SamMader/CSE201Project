@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5f81183b-cb9f-4ec0-897f-01bf437858b2" name="Default Changelist" comment="Login Screen Ready for Testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSE201Project/CSE201/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSE201Project/CSE201/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSE201Project/CSE201/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSE201Project/CSE201/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSE201/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSE201/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSE201/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSE201/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE201Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CSE201Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cse201/AppWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cse201/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cse201/IntelligAppBrowser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cse201/Mod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cse201/SysAdmin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cse201/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/cse201/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cse201/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSE201/sample.fxml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Catalog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
+            <state relative-caret-position="714">
               <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
             </state>
           </provider>
@@ -44,18 +48,18 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CSE201/login.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="38" selection-start-column="38" selection-end-column="38" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CSE201/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
+            <state relative-caret-position="680">
               <caret line="47" column="86" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -67,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CSE201/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1491">
+            <state relative-caret-position="1683">
               <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
             </state>
           </provider>
@@ -150,7 +154,7 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="cse201project" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/SceneBuilder/SceneBuilder.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -209,7 +213,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.26979867" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.2738255" />
       <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" weight="0.23489933" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -272,8 +276,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/sample/Application.java" />
     <entry file="file://$PROJECT_DIR$/src/CSE201/main.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSE201/AppViewController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -290,12 +294,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSE201/appview.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSE201/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -373,25 +377,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSE201/User.java">
+    <entry file="file://$PROJECT_DIR$/src/CSE201/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1491">
-          <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSE201/login.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSE201/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="47" column="86" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
+        <state relative-caret-position="403">
+          <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -400,18 +389,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Catalog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
+        <state relative-caret-position="714">
           <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSE201/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/CSE201/login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSE201/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="47" column="86" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSE201/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
         </state>
       </provider>
     </entry>
