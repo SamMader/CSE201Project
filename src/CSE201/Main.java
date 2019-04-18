@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class Main extends JFrame implements ActionListener {
 
@@ -27,17 +28,28 @@ public class Main extends JFrame implements ActionListener {
 	private User currentUser = new User(null, null, null);
 	
 	private String name = "N/A";
+	private boolean loggedIn = false;
+	private static int listPosition = 0;
 	
 	private static ArrayList<User> database = new ArrayList<>();
+	private static Catalog appCatalog = new Catalog();
 	
 	JLabel lblName = new JLabel("");
 	JButton btnLogout = new JButton("Logout");
 	JButton btnLogin = new JButton("Login");
+	JLabel lblTitle = new JLabel("Title");
+	JButton buttonLeft = new JButton("<");
+	JButton buttonRight = new JButton(">");
+	JButton btnAdd = new JButton("Add");
+	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		database.add(new User("Test", "abc", "Sam"));
+		appCatalog.add("Hello World", "Sam", null, 0, 0);
+		appCatalog.add("Test 2", "Sam", null, 0, 0);
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -102,10 +114,6 @@ public class Main extends JFrame implements ActionListener {
 		lblLoggedInAs.setBounds(0, 299, 111, 16);
 		contentPane.add(lblLoggedInAs);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(123, 59, 476, 285);
-		contentPane.add(scrollPane);
-		
 		txtSearch = new JTextField();
 		txtSearch.setText("Search");
 		txtSearch.setBounds(0, 173, 116, 22);
@@ -114,14 +122,50 @@ public class Main extends JFrame implements ActionListener {
 		
 		JLabel lblVarcategory = new JLabel("var_Category");
 		lblVarcategory.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVarcategory.setBounds(299, 4, 111, 30);
+		lblVarcategory.setBounds(265, 4, 111, 30);
 		contentPane.add(lblVarcategory);
 		
 		lblName.setBounds(77, 299, 56, 16);
 		lblName.setText(name);
 		contentPane.add(lblName);
 		
+		buttonLeft.setBounds(265, 335, 41, 25);
+		buttonLeft.addActionListener(this);
+		buttonLeft.setActionCommand("LEFT");
+		contentPane.add(buttonLeft);
 		
+		buttonRight.setBounds(335, 335, 41, 25);
+		buttonRight.addActionListener(this);
+		buttonRight.setActionCommand("RIGHT");
+		contentPane.add(buttonRight);
+		
+		lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		lblTitle.setBounds(216, 56, 200, 29);
+		contentPane.add(lblTitle);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(456, 118, 131, 137);
+		contentPane.add(scrollPane);
+		
+		JLabel lblDescription = new JLabel("Description");
+		scrollPane.setViewportView(lblDescription);
+		
+		JLabel lblRating = new JLabel("0");
+		lblRating.setBounds(456, 96, 56, 16);
+		contentPane.add(lblRating);
+		
+		JLabel lblOutOf = new JLabel("out of 5");
+		lblOutOf.setBounds(468, 96, 56, 16);
+		contentPane.add(lblOutOf);
+		
+		JLabel lblImage = new JLabel("Image");
+		lblImage.setBounds(216, 87, 200, 200);
+		contentPane.add(lblImage);
+		
+		btnAdd.setBounds(284, 295, 66, 25);
+		contentPane.add(btnAdd);
+		
+		displayUpdate();
 	}
 
 	@Override
@@ -146,6 +190,39 @@ public class Main extends JFrame implements ActionListener {
 			lblName.setText("N/A");
 			btnLogout.setVisible(false);
 			btnLogin.setVisible(true);
+			displayUpdate();
+		}
+		else if (cmd == "LEFT") {
+			listPosition--;
+			displayUpdate();
+		}
+		else if (cmd == "RIGHT") {
+			listPosition++;
+			displayUpdate();
+		}
+	}
+	
+	private void displayUpdate() {
+		ApplicationEntry a = appCatalog.get(listPosition);
+		lblTitle.setText(a.getName());
+		if (listPosition + 1 >= appCatalog.getNumEntries()) {
+			buttonRight.setVisible(false);
+		}
+		else if (!buttonRight.isVisible()) {
+			buttonRight.setVisible(true);
+		}
+		if (listPosition - 1 < 0) {
+			buttonLeft.setVisible(false);
+		}
+		else if (!buttonLeft.isVisible()) {
+			buttonLeft.setVisible(true);
+		}
+		
+		if (!loggedIn) {
+			btnAdd.setVisible(false);
+		}
+		else {
+			btnAdd.setVisible(true);
 		}
 	}
 }
