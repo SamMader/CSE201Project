@@ -24,7 +24,7 @@ public class Main extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JTextField txtSearch;
 
-	private User currentUser = new User("", "", "");
+	private User currentUser = new User(null, null, null);
 	
 	private String name = "N/A";
 	
@@ -134,7 +134,7 @@ public class Main extends JFrame implements ActionListener {
 			a.getDB(database);
 			a.setModal(true);
 			a.setVisible(true);
-			if (currentUser.getUsername() != null || currentUser.getUsername() != "") {
+			if (currentUser.getUsername() != null) {
 				name = currentUser.getRealName();
 				lblName.setText(name);
 				btnLogin.setVisible(false);
@@ -142,7 +142,7 @@ public class Main extends JFrame implements ActionListener {
 			}
 		}
 		else if (cmd == "LOGOUT") {
-			currentUser = new User("","","");
+			currentUser = new User(null,null,null);
 			lblName.setText("N/A");
 			btnLogout.setVisible(false);
 			btnLogin.setVisible(true);

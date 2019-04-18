@@ -19,6 +19,10 @@ import java.util.ArrayList;
 
 public class CreateAccount extends JDialog implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2562891490783120142L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField userField;
 	private JPasswordField passwordField;
@@ -79,7 +83,7 @@ public class CreateAccount extends JDialog implements ActionListener {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
+				cancelButton.setActionCommand("CANCEL");
 				cancelButton.addActionListener(this);
 				buttonPane.add(cancelButton);
 			}
@@ -95,14 +99,16 @@ public class CreateAccount extends JDialog implements ActionListener {
 		// TODO Auto-generated method stub
 		String cmd = e.getActionCommand();
 		if (cmd == "OK") {
-			if (userField.getText() == null || passwordField.getPassword() == null || nameField.getText() == null) {
+			if (userField.getText().equalsIgnoreCase("") || passwordField.getPassword().toString().equalsIgnoreCase("") || nameField.getText().equalsIgnoreCase("")) {
 				JOptionPane.showMessageDialog(this, "Please fill out all fields.");
 			}
-			String u = userField.getText();
-			String p = new String(passwordField.getPassword());
-			String n = nameField.getText();
-			database.add(new User(u, p, n));
-			dispose();
+			else {
+				String u = userField.getText();
+				String p = new String(passwordField.getPassword());
+				String n = nameField.getText();
+				database.add(new User(u, p, n));
+				dispose();
+			}
 		}
 		else if (cmd == "CANCEL") {
 			dispose();

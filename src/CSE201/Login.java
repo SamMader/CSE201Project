@@ -1,19 +1,14 @@
 package CSE201;
 
 import java.awt.Dialog;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -21,6 +16,10 @@ import javax.swing.JDialog;
 
 public class Login extends JDialog implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3457065827280871484L;
 	private JPanel contentPane;
 	private JTextField txtLogin;
 	private JPasswordField pwdPassword;
@@ -88,14 +87,16 @@ public class Login extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (txtLogin.getText() == null || pwdPassword.getPassword() == null) {
-			JOptionPane.showMessageDialog(this, "Incorrect username or password. Please try again.");
-		}
+		String cmd = e.getActionCommand();
 		String u = txtLogin.getText();
 		String p = new String(pwdPassword.getPassword());
-		String cmd = e.getActionCommand();
-		boolean foundUser = false;
 		if (cmd == "LOGIN") {
+			if (txtLogin.getText().equalsIgnoreCase("") || pwdPassword.getPassword().toString().equalsIgnoreCase("")) {
+				JOptionPane.showMessageDialog(this, "Incorrect username or password. Please try again.");
+			}
+			//String u = txtLogin.getText();
+			//String p = new String(pwdPassword.getPassword());
+			boolean foundUser = false;
 			for (User a: database) {
 				if (a.getUsername().equals(u) && a.getPassword().equals(p)) {
 					currentUser.write(a);
