@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +16,6 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 public class Main extends JFrame implements ActionListener {
 
@@ -115,8 +116,10 @@ public class Main extends JFrame implements ActionListener {
 		contentPane.add(lblLoggedInAs);
 		
 		txtSearch = new JTextField();
-		txtSearch.setText("Search");
+		txtSearch.setToolTipText("Search");
 		txtSearch.setBounds(0, 173, 116, 22);
+		txtSearch.setActionCommand("SEARCH");
+		txtSearch.addActionListener(this);
 		contentPane.add(txtSearch);
 		txtSearch.setColumns(10);
 		
@@ -200,10 +203,26 @@ public class Main extends JFrame implements ActionListener {
 			listPosition++;
 			displayUpdate();
 		}
+		else if (cmd == "SEARCH") {
+			displayUpdate();
+		}
 	}
 	
 	private void displayUpdate() {
 		ApplicationEntry a = appCatalog.get(listPosition);
+		if(!txtSearch.getText().equalsIgnoreCase("")) {
+			for (int x = 0; x < appCatalog.getNumEntries() - 1; x++) {
+				if (appCatalog.get(x).getName().contains(txtSearch.getText())) {
+					a = appCatalog.get(x);
+					break;
+				}
+			}
+			if (listPosition == appCatalog.getNumEntries() - 1) {
+				JOptionPane.showMessageDialog(this, "Search returned no results, returning.");
+				txtSearch.setText("");
+				listPosition = 0;
+			}
+		}
 		lblTitle.setText(a.getName());
 		if (listPosition + 1 >= appCatalog.getNumEntries()) {
 			buttonRight.setVisible(false);
@@ -225,4 +244,5 @@ public class Main extends JFrame implements ActionListener {
 			btnAdd.setVisible(true);
 		}
 	}
+	
 }
