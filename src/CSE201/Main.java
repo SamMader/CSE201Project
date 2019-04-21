@@ -31,9 +31,11 @@ public class Main extends JFrame implements ActionListener {
 	private String name = "N/A";
 	private boolean loggedIn = false;
 	private static int listPosition = 0;
+	private boolean inSearch = false;
 	
 	private static ArrayList<User> database = new ArrayList<>();
 	private static Catalog appCatalog = new Catalog();
+	private static Catalog subCatalog = new Catalog();
 	
 	JLabel lblName = new JLabel("");
 	JButton btnLogout = new JButton("Logout");
@@ -50,6 +52,7 @@ public class Main extends JFrame implements ActionListener {
 		database.add(new User("Test", "abc", "Sam"));
 		appCatalog.add("Hello World", "Sam", null, 0, 0);
 		appCatalog.add("Test 2", "Sam", null, 0, 0);
+		appCatalog.add("Test 3", "Sam", null, 0, 0);
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -209,22 +212,30 @@ public class Main extends JFrame implements ActionListener {
 	}
 	
 	private void displayUpdate() {
-		ApplicationEntry a = appCatalog.get(listPosition);
 		if(!txtSearch.getText().equalsIgnoreCase("")) {
-			for (int x = 0; x < appCatalog.getNumEntries() - 1; x++) {
+			subCatalog.clear();
+			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
 				if (appCatalog.get(x).getName().contains(txtSearch.getText())) {
-					a = appCatalog.get(x);
-					break;
+					subCatalog.copy(appCatalog, x);
 				}
 			}
-			if (listPosition == appCatalog.getNumEntries() - 1) {
-				JOptionPane.showMessageDialog(this, "Search returned no results, returning.");
-				txtSearch.setText("");
+			if (!inSearch) {
+				listPosition = 0;
+				inSearch = true;
+			}
+		}
+		else if (subCatalog.getNumEntries() == 0){
+			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
+				subCatalog.copy(appCatalog, x);
+			}
+			if (inSearch) {
+				inSearch = false;
 				listPosition = 0;
 			}
 		}
+		ApplicationEntry a = subCatalog.get(listPosition);
 		lblTitle.setText(a.getName());
-		if (listPosition + 1 >= appCatalog.getNumEntries()) {
+		if (listPosition + 1 >= subCatalog.getNumEntries()) {
 			buttonRight.setVisible(false);
 		}
 		else if (!buttonRight.isVisible()) {

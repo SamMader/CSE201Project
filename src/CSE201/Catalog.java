@@ -73,5 +73,10 @@ public class Catalog {
 	public void sort() {
 		Collections.sort(this.catalog);
 	}
+	
+	public void copy(Catalog a, int x) {
+		this.catalog.add(a.get(x));
+		this.numEntries++;
+	}
 
 }
