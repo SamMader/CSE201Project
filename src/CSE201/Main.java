@@ -171,6 +171,12 @@ public class Main extends JFrame implements ActionListener {
 		btnAdd.setBounds(284, 295, 66, 25);
 		contentPane.add(btnAdd);
 		
+		JButton btnClear = new JButton("Clear");
+		btnClear.setBounds(0, 195, 66, 25);
+		btnClear.addActionListener(this);
+		btnClear.setActionCommand("CLEAR");
+		contentPane.add(btnClear);
+		
 		displayUpdate();
 	}
 
@@ -209,6 +215,10 @@ public class Main extends JFrame implements ActionListener {
 		else if (cmd == "SEARCH") {
 			displayUpdate();
 		}
+		else if (cmd == "CLEAR") {
+			txtSearch.setText("");
+			displayUpdate();
+		}
 	}
 	
 	private void displayUpdate() {
@@ -225,6 +235,16 @@ public class Main extends JFrame implements ActionListener {
 			}
 		}
 		else if (subCatalog.getNumEntries() == 0){
+			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
+				subCatalog.copy(appCatalog, x);
+			}
+			if (inSearch) {
+				inSearch = false;
+				listPosition = 0;
+			}
+		}
+		else if (inSearch) {
+			subCatalog.clear();
 			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
 				subCatalog.copy(appCatalog, x);
 			}
@@ -255,5 +275,4 @@ public class Main extends JFrame implements ActionListener {
 			btnAdd.setVisible(true);
 		}
 	}
-	
 }
