@@ -3,9 +3,9 @@ package CSE201;
 
 public class ApplicationEntry implements Comparable<ApplicationEntry> {
 
-	String name, author, genre;
+	String name, author;
 	double price;
-	int downloads;
+	int downloads, genre;
 
 	// ctors
 
@@ -18,7 +18,7 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 
 	/***/
 
-	public ApplicationEntry(String name, String author, String genre) {
+	public ApplicationEntry(String name, String author, int genre) {
 		this(name, author);
 		this.genre = genre;
 
@@ -29,7 +29,7 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 
 	/***/
 
-	public ApplicationEntry(String name, String author, String genre, double price) {
+	public ApplicationEntry(String name, String author, int genre, double price) {
 		this(name, author, genre);
 		this.price = price;
 
@@ -39,7 +39,7 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 
 	/***/
 
-	public ApplicationEntry(String name, String author, String genre, double price, int downloads) {
+	public ApplicationEntry(String name, String author, int genre, double price, int downloads) {
 		this(name, author, genre, price);
 		this.downloads = downloads;
 	}
@@ -82,7 +82,7 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 		return author;
 	}
 
-	public String getGenre() {
+	public Integer getGenre() {
 		return genre;
 	}
 

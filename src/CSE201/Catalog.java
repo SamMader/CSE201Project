@@ -21,7 +21,7 @@ public class Catalog {
 
 	/***/
 
-	public ApplicationEntry add(String name, String author, String genre, double price, int downloads) {
+	public ApplicationEntry add(String name, String author, int genre, double price, int downloads) {
 		ApplicationEntry a = new ApplicationEntry(name, author, genre, price, downloads);
 
 		this.catalog.add(a);

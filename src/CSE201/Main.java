@@ -31,6 +31,7 @@ public class Main extends JFrame implements ActionListener {
 	private String name = "N/A";
 	private boolean loggedIn = false;
 	private static int listPosition = 0;
+	private static int genre = 0;
 	private boolean inSearch = false;
 	
 	private static ArrayList<User> database = new ArrayList<>();
@@ -44,15 +45,16 @@ public class Main extends JFrame implements ActionListener {
 	JButton buttonLeft = new JButton("<");
 	JButton buttonRight = new JButton(">");
 	JButton btnAdd = new JButton("Add");
+	JLabel lblVarcategory = new JLabel("Top Apps");
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		database.add(new User("Test", "abc", "Sam"));
-		appCatalog.add("Hello World", "Sam", null, 0, 0);
-		appCatalog.add("Test 2", "Sam", null, 0, 0);
-		appCatalog.add("Test 3", "Sam", null, 0, 0);
+		appCatalog.add("Hello World", "Sam", 1, 0, 0);
+		appCatalog.add("Test 2", "Sam", 2, 0, 0);
+		appCatalog.add("Test 3", "Sam", 2, 0, 0);
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -85,14 +87,20 @@ public class Main extends JFrame implements ActionListener {
 		JButton btnTopApps = new JButton("Top Apps");
 		btnTopApps.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnTopApps.setBounds(0, 32, 91, 25);
+		btnTopApps.setActionCommand("TOPAPPS");
+		btnTopApps.addActionListener(this);
 		contentPane.add(btnTopApps);
 		
 		JButton btnRpg = new JButton("RPG");
 		btnRpg.setBounds(0, 60, 91, 25);
+		btnRpg.setActionCommand("RPG");
+		btnRpg.addActionListener(this);
 		contentPane.add(btnRpg);
 		
 		JButton btnStrategy = new JButton("Strategy");
 		btnStrategy.setBounds(0, 87, 91, 25);
+		btnStrategy.setActionCommand("STRATEGY");
+		btnStrategy.addActionListener(this);
 		contentPane.add(btnStrategy);
 		
 		JButton btnFps = new JButton("FPS");
@@ -126,7 +134,6 @@ public class Main extends JFrame implements ActionListener {
 		contentPane.add(txtSearch);
 		txtSearch.setColumns(10);
 		
-		JLabel lblVarcategory = new JLabel("var_Category");
 		lblVarcategory.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVarcategory.setBounds(265, 4, 111, 30);
 		contentPane.add(lblVarcategory);
@@ -182,7 +189,7 @@ public class Main extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		// Button commands sent from action listener
 		String cmd = e.getActionCommand();
 		if (cmd == "LOGIN") {
 			Login a = new Login();
@@ -195,6 +202,7 @@ public class Main extends JFrame implements ActionListener {
 				lblName.setText(name);
 				btnLogin.setVisible(false);
 				btnLogout.setVisible(true);
+				btnAdd.setVisible(true);
 			}
 		}
 		else if (cmd == "LOGOUT") {
@@ -219,13 +227,34 @@ public class Main extends JFrame implements ActionListener {
 			txtSearch.setText("");
 			displayUpdate();
 		}
+		else if (cmd == "TOPAPPS") {
+			genre = 0;
+			displayUpdate();
+		}
+		else if (cmd == "RPG") {
+			genre = 1;
+			displayUpdate();
+		}
+		else if (cmd == "STRATEGY") {
+			genre = 2;
+			lblVarcategory.setText("Strategy");
+			displayUpdate();
+		}
 	}
 	
 	private void displayUpdate() {
+		// If searching
 		if(!txtSearch.getText().equalsIgnoreCase("")) {
 			subCatalog.clear();
 			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
-				if (appCatalog.get(x).getName().contains(txtSearch.getText())) {
+				if (appCatalog.get(x).getName().contains(txtSearch.getText()) && (appCatalog.get(x).getGenre() == genre || genre == 0)) {
+					subCatalog.copy(appCatalog, x);
+				}
+			}
+			if (subCatalog.getNumEntries() == 0) {
+				JOptionPane.showMessageDialog(this, "Search returned no results, clearing.");
+				txtSearch.setText("");
+				for (int x = 0; x < appCatalog.getNumEntries(); x++) {
 					subCatalog.copy(appCatalog, x);
 				}
 			}
@@ -234,25 +263,40 @@ public class Main extends JFrame implements ActionListener {
 				inSearch = true;
 			}
 		}
+		// Initialization if
 		else if (subCatalog.getNumEntries() == 0){
 			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
-				subCatalog.copy(appCatalog, x);
+				if (appCatalog.get(x).getGenre() == genre || genre == 0) {
+					subCatalog.copy(appCatalog, x);
+				}
 			}
 			if (inSearch) {
 				inSearch = false;
 				listPosition = 0;
 			}
 		}
+		// Cleared search if
 		else if (inSearch) {
 			subCatalog.clear();
 			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
-				subCatalog.copy(appCatalog, x);
+				if (appCatalog.get(x).getGenre() == genre || genre == 0) {
+					subCatalog.copy(appCatalog, x);
+				}
 			}
 			if (inSearch) {
 				inSearch = false;
 				listPosition = 0;
 			}
 		}
+		else {
+			subCatalog.clear();
+			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
+				if (appCatalog.get(x).getGenre() == genre || genre == 0) {
+					subCatalog.copy(appCatalog, x);
+				}
+			}
+		}
+		// Getting App Data and setting buttons
 		ApplicationEntry a = subCatalog.get(listPosition);
 		lblTitle.setText(a.getName());
 		if (listPosition + 1 >= subCatalog.getNumEntries()) {
