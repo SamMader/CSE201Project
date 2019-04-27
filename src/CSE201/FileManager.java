@@ -89,7 +89,7 @@ public class FileManager {
 					//splits the string using the "-" delimiter
 					String[] temp = data.split("-");
 					//Loads the data
-					loadInto.add(temp[0], temp[1], temp[2], Double.parseDouble(temp[3]), Integer.parseInt(temp[4]));
+					loadInto.add(temp[0], temp[1], Integer.parseInt(temp[2]), Double.parseDouble(temp[3]), Integer.parseInt(temp[4]));
 				}
 			}
 			reader.close();

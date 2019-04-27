@@ -58,7 +58,7 @@ public class Main extends JFrame implements ActionListener {
 		appCatalog.add("Test 3", "Sam", 2, 0, 0);
 		
 		//populates appCatalog with the data from applications.txt
-		FileManager.loadAppData("applications.txt", appCatalog);
+		//FileManager.loadAppData("applications.txt", appCatalog);
 
 		
 		EventQueue.invokeLater(new Runnable() {
