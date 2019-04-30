@@ -46,6 +46,8 @@ public class Main extends JFrame implements ActionListener {
 	JButton buttonRight = new JButton(">");
 	JButton btnAdd = new JButton("Add");
 	JLabel lblVarcategory = new JLabel("Top Apps");
+	JLabel lblRating = new JLabel("0");
+	JButton btnRate = new JButton("Rate");
 	
 	/**
 	 * Launch the application.
@@ -78,7 +80,7 @@ public class Main extends JFrame implements ActionListener {
 	 */
 	public Main() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 617, 420);
+		setBounds(100, 100, 893, 436);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -140,19 +142,19 @@ public class Main extends JFrame implements ActionListener {
 		txtSearch.setColumns(10);
 		
 		lblVarcategory.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVarcategory.setBounds(265, 4, 111, 30);
+		lblVarcategory.setBounds(239, 4, 111, 30);
 		contentPane.add(lblVarcategory);
 		
 		lblName.setBounds(77, 299, 56, 16);
 		lblName.setText(name);
 		contentPane.add(lblName);
 		
-		buttonLeft.setBounds(265, 335, 41, 25);
+		buttonLeft.setBounds(239, 335, 41, 25);
 		buttonLeft.addActionListener(this);
 		buttonLeft.setActionCommand("LEFT");
 		contentPane.add(buttonLeft);
 		
-		buttonRight.setBounds(335, 335, 41, 25);
+		buttonRight.setBounds(309, 335, 41, 25);
 		buttonRight.addActionListener(this);
 		buttonRight.setActionCommand("RIGHT");
 		contentPane.add(buttonRight);
@@ -162,25 +164,24 @@ public class Main extends JFrame implements ActionListener {
 		contentPane.add(lblTitle);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(456, 118, 131, 137);
+		scrollPane.setBounds(456, 87, 271, 80);
 		contentPane.add(scrollPane);
 		
 		JLabel lblDescription = new JLabel("Description");
 		scrollPane.setViewportView(lblDescription);
 		
-		JLabel lblRating = new JLabel("0");
-		lblRating.setBounds(456, 96, 56, 16);
+		lblRating.setBounds(456, 64, 56, 16);
 		contentPane.add(lblRating);
 		
 		JLabel lblOutOf = new JLabel("out of 5");
-		lblOutOf.setBounds(468, 96, 56, 16);
+		lblOutOf.setBounds(467, 64, 56, 16);
 		contentPane.add(lblOutOf);
 		
 		JLabel lblImage = new JLabel("Image");
 		lblImage.setBounds(216, 87, 200, 200);
 		contentPane.add(lblImage);
 		
-		btnAdd.setBounds(284, 295, 66, 25);
+		btnAdd.setBounds(260, 295, 66, 25);
 		contentPane.add(btnAdd);
 		
 		JButton btnClear = new JButton("Clear");
@@ -189,9 +190,16 @@ public class Main extends JFrame implements ActionListener {
 		btnClear.setActionCommand("CLEAR");
 		contentPane.add(btnClear);
 		
+		btnRate.setBounds(515, 60, 66, 25);
+		btnRate.addActionListener(this);
+		btnRate.setActionCommand("RATE");
+		btnRate.setVisible(false);
+		contentPane.add(btnRate);
+		
 		displayUpdate();
 	}
 
+	// Handles button onClick actions
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// Button commands sent from action listener
@@ -208,6 +216,8 @@ public class Main extends JFrame implements ActionListener {
 				btnLogin.setVisible(false);
 				btnLogout.setVisible(true);
 				btnAdd.setVisible(true);
+				btnRate.setVisible(true);
+				loggedIn = true;
 			}
 		}
 		else if (cmd == "LOGOUT") {
@@ -245,8 +255,17 @@ public class Main extends JFrame implements ActionListener {
 			lblVarcategory.setText("Strategy");
 			displayUpdate();
 		}
+		else if (cmd == "RATE") {
+			RateBox a = new RateBox();
+			a.getApplication(subCatalog.get(listPosition));
+			a.getUser(currentUser);
+			a.setModal(true);
+			a.setVisible(true);
+			displayUpdate();
+		}
 	}
 	
+	// Private method to repopulate onscreen display with elements based on predetermined filtering criteria.
 	private void displayUpdate() {
 		// If searching
 		if(!txtSearch.getText().equalsIgnoreCase("")) {
@@ -293,6 +312,7 @@ public class Main extends JFrame implements ActionListener {
 				listPosition = 0;
 			}
 		}
+		// Everything else
 		else {
 			subCatalog.clear();
 			for (int x = 0; x < appCatalog.getNumEntries(); x++) {
@@ -304,6 +324,12 @@ public class Main extends JFrame implements ActionListener {
 		// Getting App Data and setting buttons
 		ApplicationEntry a = subCatalog.get(listPosition);
 		lblTitle.setText(a.getName());
+		lblRating.setText(Integer.toString(a.getRating()));
+		
+		if (a.rated.contains(currentUser)) {
+			btnRate.setVisible(false);
+		}
+		
 		if (listPosition + 1 >= subCatalog.getNumEntries()) {
 			buttonRight.setVisible(false);
 		}
@@ -323,5 +349,7 @@ public class Main extends JFrame implements ActionListener {
 		else {
 			btnAdd.setVisible(true);
 		}
+		
+		
 	}
 }

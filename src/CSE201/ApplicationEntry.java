@@ -1,4 +1,7 @@
 package CSE201;
+
+import java.util.ArrayList;
+
 /***/
 
 public class ApplicationEntry implements Comparable<ApplicationEntry> {
@@ -6,6 +9,11 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 	String name, author;
 	double price;
 	int downloads, genre;
+	
+	int rating, timesRated;
+	
+	ArrayList<String> comments = new ArrayList<>();
+	ArrayList<User> rated = new ArrayList<>();
 
 	// ctors
 
@@ -14,6 +22,8 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 	public ApplicationEntry(String name, String author) {
 		this.name = name;
 		this.author = author;
+		this.rating = 0;
+		this.timesRated = 0;
 	}
 
 	/***/
@@ -72,6 +82,15 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 				+ "\t\t Downloads " + this.downloads + " ]";
 	}
 
+	public void addComment(String a) {
+		comments.add(a);
+	}
+	
+	public void calculateRating(int x) {
+		timesRated++;
+		rating = (rating + x) / timesRated;
+	}
+
 	// getters
 
 	public String getName() {
@@ -92,6 +111,10 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 
 	public int getDownloads() {
 		return downloads;
+	}
+	
+	public int getRating() {
+		return rating;
 	}
 
 }
