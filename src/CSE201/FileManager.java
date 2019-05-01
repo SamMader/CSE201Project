@@ -99,7 +99,7 @@ public class FileManager {
 	}
 	
 	
-	public static void addAppData(String path, String name, String author, String genre, double price, int downloads) {
+	public static void addAppData(String name, String author, int genre, double price, int downloads) {
 		FileManager.writeLine("applications.txt", name + "-" + author + "-" + genre + "-" + price + "-" + downloads);
 	}
 	
