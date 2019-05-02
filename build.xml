@@ -1,102 +1,38 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- WARNING: Eclipse auto-generated file.
-              Any modifications will be overwritten.
-              To include a user specific buildfile here, simply create one in the same
-              directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="CSE201Project">
-    <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="C:/Users/samsp/eclipse/java-2019-03/eclipse/"/>
-    <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.8"/>
-    <property name="source" value="1.8"/>
-    <path id="CSE201Project.classpath">
-        <pathelement location="bin"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.osgi_3.13.300.v20190218-1622.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.core.commands_3.9.300.v20190215-1957.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.equinox.common_3.10.300.v20190218-2100.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.equinox.registry_3.8.300.v20190218-2100.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.core.runtime_3.15.200.v20190301-1641.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.text_3.8.100.v20190306-1823.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.110.0.v20190305-0602.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.jface_3.15.100.v20190222-1334.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.jface.text_3.15.100.v20190305-0811.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.ui.workbench_3.113.0.v20190219-1432.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/com.ibm.icu_63.1.0.v20181030-1705.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.ui.forms_3.7.500.v20190216-1545.jar"/>
-    </path>
-    <path id="run.CreateAccount.classpath">
-        <path refid="CSE201Project.classpath"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.osgi_3.13.300.v20190218-1622.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.core.commands_3.9.300.v20190215-1957.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.equinox.common_3.10.300.v20190218-2100.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.equinox.registry_3.8.300.v20190218-2100.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.core.runtime_3.15.200.v20190301-1641.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.text_3.8.100.v20190306-1823.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.110.0.v20190305-0602.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.jface_3.15.100.v20190222-1334.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.jface.text_3.15.100.v20190305-0811.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.ui.workbench_3.113.0.v20190219-1432.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/com.ibm.icu_63.1.0.v20181030-1705.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.ui.forms_3.7.500.v20190216-1545.jar"/>
-    </path>
-    <path id="run.Main.classpath">
-        <path refid="CSE201Project.classpath"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.osgi_3.13.300.v20190218-1622.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.core.commands_3.9.300.v20190215-1957.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.equinox.common_3.10.300.v20190218-2100.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.equinox.registry_3.8.300.v20190218-2100.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.core.runtime_3.15.200.v20190301-1641.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.text_3.8.100.v20190306-1823.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.110.0.v20190305-0602.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.jface_3.15.100.v20190222-1334.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.jface.text_3.15.100.v20190305-0811.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.ui.workbench_3.113.0.v20190219-1432.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/com.ibm.icu_63.1.0.v20181030-1705.jar"/>
-        <pathelement location="C:/Users/samsp/.p2/pool/plugins/org.eclipse.ui.forms_3.7.500.v20190216-1545.jar"/>
-    </path>
-    <target name="init">
-        <mkdir dir="bin"/>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="src">
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="clean">
-        <delete dir="bin"/>
-    </target>
-    <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects"/>
-    <target depends="init" name="build-project">
-        <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
-            <src path="src"/>
-            <classpath refid="CSE201Project.classpath"/>
-        </javac>
-    </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
-        <copy todir="${ant.library.dir}">
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </copy>
-        <unzip dest="${ant.library.dir}">
-            <patternset includes="jdtCompilerAdapter.jar"/>
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </unzip>
-    </target>
-    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
-        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
-        <antcall target="build"/>
-    </target>
-    <target name="CreateAccount">
-        <java classname="CSE201.CreateAccount" failonerror="true" fork="yes">
-            <classpath refid="run.CreateAccount.classpath"/>
-        </java>
-    </target>
-    <target name="Main">
-        <java classname="CSE201.Main" failonerror="true" fork="yes">
-            <classpath refid="run.Main.classpath"/>
-        </java>
-    </target>
+<project name="CSE201Project" default="dist" basedir=".">
+  <description>
+    simple example build file
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist" location="dist"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source">
+    <!-- Compile the Java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution">
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/lib"/>
+
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/lib/MyProject-${DSTAMP}.jar" basedir="${build}"/>
+  </target>
+
+  <target name="clean"
+        description="clean up">
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
 </project>
