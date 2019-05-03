@@ -31,6 +31,7 @@ public class Main extends JFrame implements ActionListener {
 	private String name = "N/A";
 	private boolean loggedIn = false;
 	private static int listPosition = 0;
+	private static int commentPosition = 0;
 	private static int genre = 0;
 	private boolean inSearch = false;
 	
@@ -48,6 +49,10 @@ public class Main extends JFrame implements ActionListener {
 	JLabel lblVarcategory = new JLabel("Top Apps");
 	JLabel lblRating = new JLabel("0");
 	JButton btnRate = new JButton("Rate");
+	JButton btnComment = new JButton("Comment");
+	JLabel lblComment = new JLabel("Comment");
+	JButton commentLeft = new JButton("<");
+	JButton commentRight = new JButton(">");
 	
 	/**
 	 * Launch the application.
@@ -55,12 +60,8 @@ public class Main extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		database.add(new User("Test", "abc", "Sam"));
 		
-		appCatalog.add("Hello World", "Sam", 1, 0, 0);
-		appCatalog.add("Test 2", "Sam", 2, 0, 0);
-		appCatalog.add("Test 3", "Sam", 2, 0, 0);
-		
 		//populates appCatalog with the data from applications.txt
-		//FileManager.loadAppData("applications.txt", appCatalog);
+		FileManager.loadAppData("applications.txt", appCatalog);
 
 		
 		EventQueue.invokeLater(new Runnable() {
@@ -196,6 +197,28 @@ public class Main extends JFrame implements ActionListener {
 		btnRate.setVisible(false);
 		contentPane.add(btnRate);
 		
+		JLabel lblComments = new JLabel("Comments");
+		lblComments.setBounds(456, 176, 80, 16);
+		contentPane.add(lblComments);
+		
+		commentLeft.setBounds(456, 335, 46, 25);
+		commentLeft.setActionCommand("COMMENTL");
+		commentLeft.addActionListener(this);
+		contentPane.add(commentLeft);
+		
+		commentRight.setBounds(681, 335, 46, 25);
+		commentRight.setActionCommand("COMMENTR");
+		commentRight.addActionListener(this);
+		contentPane.add(commentRight);
+		
+		btnComment.setBounds(546, 335, 97, 25);
+		btnComment.addActionListener(this);
+		btnComment.setActionCommand("COMMENT");
+		contentPane.add(btnComment);
+		
+		lblComment.setBounds(456, 205, 271, 118);
+		contentPane.add(lblComment);
+		
 		displayUpdate();
 	}
 
@@ -213,18 +236,14 @@ public class Main extends JFrame implements ActionListener {
 			if (currentUser.getUsername() != null) {
 				name = currentUser.getRealName();
 				lblName.setText(name);
-				btnLogin.setVisible(false);
-				btnLogout.setVisible(true);
-				btnAdd.setVisible(true);
-				btnRate.setVisible(true);
 				loggedIn = true;
+				displayUpdate();
 			}
 		}
 		else if (cmd == "LOGOUT") {
 			currentUser = new User(null,null,null);
 			lblName.setText("N/A");
-			btnLogout.setVisible(false);
-			btnLogin.setVisible(true);
+			loggedIn = false;
 			displayUpdate();
 		}
 		else if (cmd == "LEFT") {
@@ -263,10 +282,41 @@ public class Main extends JFrame implements ActionListener {
 			a.setVisible(true);
 			displayUpdate();
 		}
+		else if (cmd == "COMMENTL") {
+			commentPosition--;
+			displayUpdate();
+		}
+		else if (cmd == "COMMENTR") {
+			commentPosition++;
+			displayUpdate();
+		}
+		else if (cmd == "COMMENT") {
+			CommentBox a = new CommentBox();
+			a.getApplication(subCatalog.get(listPosition));
+			a.getUser(currentUser);
+			a.setModal(true);
+			a.setVisible(true);
+			displayUpdate();
+		}
 	}
 	
 	// Private method to repopulate onscreen display with elements based on predetermined filtering criteria.
 	private void displayUpdate() {
+		// Showing buttons
+		if (!loggedIn) {
+			btnAdd.setVisible(false);
+			btnRate.setVisible(false);
+			btnComment.setVisible(false);
+			btnLogout.setVisible(false);
+			btnLogin.setVisible(true);
+		}
+		else {
+			btnAdd.setVisible(true);
+			btnRate.setVisible(true);
+			btnComment.setVisible(true);
+			btnLogout.setVisible(true);
+			btnLogin.setVisible(false);
+		}
 		// If searching
 		if(!txtSearch.getText().equalsIgnoreCase("")) {
 			subCatalog.clear();
@@ -325,11 +375,18 @@ public class Main extends JFrame implements ActionListener {
 		ApplicationEntry a = subCatalog.get(listPosition);
 		lblTitle.setText(a.getName());
 		lblRating.setText(Integer.toString(a.getRating()));
-		
+		if (a.comments.size() == 0) {
+			lblComment.setText("No comments");
+		}
+		else {
+			lblComment.setText(a.comments.get(commentPosition));
+		}
 		if (a.rated.contains(currentUser)) {
 			btnRate.setVisible(false);
 		}
-		
+		if (a.commented.contains(currentUser)) {
+			btnComment.setVisible(false);
+		}
 		if (listPosition + 1 >= subCatalog.getNumEntries()) {
 			buttonRight.setVisible(false);
 		}
@@ -342,14 +399,17 @@ public class Main extends JFrame implements ActionListener {
 		else if (!buttonLeft.isVisible()) {
 			buttonLeft.setVisible(true);
 		}
-		
-		if (!loggedIn) {
-			btnAdd.setVisible(false);
+		if (commentPosition + 1 >= a.comments.size()) {
+			commentRight.setVisible(false);
 		}
-		else {
-			btnAdd.setVisible(true);
+		else if (!commentRight.isVisible()) {
+			commentRight.setVisible(true);
 		}
-		
-		
+		if (commentPosition - 1 < 0) {
+			commentLeft.setVisible(false);
+		}
+		else if (!commentLeft.isVisible()) {
+			commentLeft.setVisible(true);
+		}
 	}
 }

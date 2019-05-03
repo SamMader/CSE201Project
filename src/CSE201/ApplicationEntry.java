@@ -14,6 +14,7 @@ public class ApplicationEntry implements Comparable<ApplicationEntry> {
 	
 	ArrayList<String> comments = new ArrayList<>();
 	ArrayList<User> rated = new ArrayList<>();
+	ArrayList<User> commented = new ArrayList<>();
 
 	// ctors
 

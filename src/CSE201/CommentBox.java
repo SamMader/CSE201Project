@@ -21,6 +21,7 @@ public class CommentBox extends JDialog implements ActionListener {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textField;
 	private ApplicationEntry a;
+	private User b;
 
 	/**
 	 * Create the dialog.
@@ -68,7 +69,8 @@ public class CommentBox extends JDialog implements ActionListener {
 		if (cmd == "OK") {
 			int x = textField.getText().length();
 			if (x <= 256) {
-				a.addComment(textField.getText());
+				a.addComment(b.getUsername() + " says " + textField.getText());
+				a.commented.add(b);
 				this.setVisible(false);
 				this.dispose();
 			}
@@ -85,6 +87,10 @@ public class CommentBox extends JDialog implements ActionListener {
 	
 	public void getApplication(ApplicationEntry b) {
 		a = b;
+	}
+	
+	public void getUser(User a) {
+		b = a;
 	}
 	
 }
