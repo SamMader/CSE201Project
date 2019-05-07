@@ -53,6 +53,8 @@ public class Main extends JFrame implements ActionListener {
 	JLabel lblComment = new JLabel("Comment");
 	JButton commentLeft = new JButton("<");
 	JButton commentRight = new JButton(">");
+	private final JButton btnDelete = new JButton("Delete");
+	private final JButton btnDeleteApp = new JButton("Delete App");
 	
 	/**
 	 * Launch the application.
@@ -183,13 +185,9 @@ public class Main extends JFrame implements ActionListener {
 		contentPane.add(lblImage);
 		
 		btnAdd.setBounds(260, 295, 66, 25);
+		btnAdd.setActionCommand("ADD");
+		btnAdd.addActionListener(this);
 		contentPane.add(btnAdd);
-		
-		JButton btnClear = new JButton("Clear");
-		btnClear.setBounds(0, 195, 66, 25);
-		btnClear.addActionListener(this);
-		btnClear.setActionCommand("CLEAR");
-		contentPane.add(btnClear);
 		
 		btnRate.setBounds(515, 60, 66, 25);
 		btnRate.addActionListener(this);
@@ -218,6 +216,18 @@ public class Main extends JFrame implements ActionListener {
 		
 		lblComment.setBounds(456, 205, 271, 118);
 		contentPane.add(lblComment);
+		
+		btnDelete.setBounds(546, 364, 97, 25);
+		btnDelete.addActionListener(this);
+		btnDelete.setActionCommand("DELETEC");
+		btnDelete.setVisible(false);
+		contentPane.add(btnDelete);
+		
+		btnDeleteApp.setBounds(598, 60, 97, 25);
+		btnDeleteApp.addActionListener(this);
+		btnDeleteApp.setActionCommand("DELETEA");
+		btnDeleteApp.setVisible(false);
+		contentPane.add(btnDeleteApp);
 		
 		displayUpdate();
 	}
@@ -298,6 +308,26 @@ public class Main extends JFrame implements ActionListener {
 			a.setVisible(true);
 			displayUpdate();
 		}
+		else if (cmd == "ADD") {
+			currentUser.getApps().add(subCatalog.get(listPosition));
+			displayUpdate();
+		}
+		else if (cmd == "DELETEC") {
+			subCatalog.get(listPosition).comments.remove(commentPosition);
+			if (commentPosition == subCatalog.get(listPosition).comments.size() - 1) {
+				commentPosition--;
+				displayUpdate();
+			}
+			else {
+				displayUpdate();
+			}
+		}
+		else if (cmd == "DELETEA") {
+			int x = appCatalog.find(subCatalog.get(listPosition));
+			appCatalog.remove(x);
+			listPosition = 0;
+			displayUpdate();
+		}
 	}
 	
 	// Private method to repopulate onscreen display with elements based on predetermined filtering criteria.
@@ -311,11 +341,20 @@ public class Main extends JFrame implements ActionListener {
 			btnLogin.setVisible(true);
 		}
 		else {
-			btnAdd.setVisible(true);
+			if (currentUser.getApps().contains(subCatalog.get(listPosition))) {
+				btnAdd.setVisible(false);
+			}
+			else {
+				btnAdd.setVisible(true);
+			}
 			btnRate.setVisible(true);
 			btnComment.setVisible(true);
 			btnLogout.setVisible(true);
 			btnLogin.setVisible(false);
+			if (currentUser.getAdmin()) {
+				btnDelete.setVisible(true);
+				btnDeleteApp.setVisible(true);
+			}
 		}
 		// If searching
 		if(!txtSearch.getText().equalsIgnoreCase("")) {

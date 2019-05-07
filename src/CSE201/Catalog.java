@@ -31,8 +31,8 @@ public class Catalog {
 
 	/***/
 
-	public void remove(String name, String author) {
-		this.catalog.remove(new ApplicationEntry(name, author));
+	public void remove(int x) {
+		this.catalog.remove(x);
 		this.numEntries--;
 	}
 
@@ -78,5 +78,19 @@ public class Catalog {
 		this.catalog.add(a.get(x));
 		this.numEntries++;
 	}
+	
+	public int find(ApplicationEntry a) {
+		int y = 0;
+		for (ApplicationEntry x: catalog) {
+			if (x.equals(a)) {
+				return y;
+			}
+			else {
+				y++;
+			}
+		}
+		return 0;
+	}
+
 
 }
